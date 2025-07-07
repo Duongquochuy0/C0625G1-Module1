@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính chu vi và diện tích hình chữ nhật</title>
+</head>
+<body>
+<h1>Tính chu vi và diện tích của hình chữ nhật</h1>
+<input type="number" id="chieuDai" placeholder="Nhập chiều dài:"> <br> <br>
+<input type="number" id="chieuRong" placeholder="Nhập chiều rộng"> <br><br>
+<button onclick="send()">Tính</button>
+<p id="chuVi"></p>
+<p id="dienTich"></p>
+<script>
+    function send() {
+        let dai = parseFloat(document.getElementById("chieuDai").value);
+        let rong = parseFloat(document.getElementById("chieuRong").value);
+        let dienTich = dai * rong;
+        let chuVi = 2 * (dai + rong);
+        document.getElementById("dienTich").innerText = "Diện tích hình chữ nhật là: " + dienTich + " cm²";
+        document.getElementById("chuVi").innerText = "Chu vi hình chữ nhật là: " + chuVi + " cm";
+    }
+</script>
+</body>
+</html>

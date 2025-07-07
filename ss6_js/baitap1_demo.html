@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tính diện tích hình chữ nhật</title>
+</head>
+<body>
+<h2>Tính diện tích hình chữ nhật</h2>
+
+<label>Chiều dài (cm):</label>
+<input type="number" id="chieuDai"><br><br>
+
+<label>Chiều rộng (cm):</label>
+<input type="number" id="chieuRong"><br><br>
+
+<button onclick="tinhToan()">Tính toán</button>
+
+<h3>Kết quả:</h3>
+<p id="dienTich"></p>
+<p id="chuVi"></p>
+
+<script>
+  function tinhToan() {
+    let dai = parseFloat(document.getElementById("chieuDai").value);
+    let rong = parseFloat(document.getElementById("chieuRong").value);
+
+    if (isNaN(dai) || isNaN(rong) || dai <= 0 || rong <= 0) {
+      alert("Vui lòng nhập chiều dài và chiều rộng hợp lệ!");
+      return;
+    }
+
+    let dienTich = dai * rong;
+    let chuVi = 2 * (dai + rong);
+
+    document.getElementById("dienTich").innerText = "Diện tích: " + dienTich + " cm²";
+    document.getElementById("chuVi").innerText = "Chu vi: " + chuVi + " cm";
+  }
+</script>
+</body>
+</html>
