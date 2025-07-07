@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký học viên</title>
+    <style>
+        body{
+            width: 700px;
+            border: 30px solid #cceeff;
+            border-radius: 12px;
+            margin: 35px auto;
+            background-color: lightpink;
+
+        }
+        h1{
+            background: deepskyblue;
+            color: black;
+            padding: 30px;
+            margin: -20px -10px 20px -10px;
+            font-size: 22px;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        form{
+                background: papayawhip;
+                padding: 0px 10px;
+        }
+        .infor{
+            display: inline-block;
+            width: 100px;
+            font-weight: 800;
+            margin-bottom: 18px;
+        }
+        .button{
+            margin-left: 40px;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            background-color: #007BFF;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+<form action="">
+    <h1>ĐĂNG KÝ HỌC VIÊN</h1>
+    <labe class="infor">Họ và tên</labe>
+    <input type="text" name="name"><br>
+    <label class="infor" >Ngày sinh</label>
+    <input type="date"> <br>
+    <label class="infor" >Giới tính</label>
+    <label ><input type="radio" name="gender" value="male">Nam</label>
+    <label ><input type="radio" name="gender" value="Female">Nữ</label><br>
+    <label class="infor" >Địa chỉ</label>
+    <textarea></textarea><br>
+    <label class="infor">Chọn lớp</label>
+    <select>
+        <option>--Chọn lớp--</option>
+        <option>C05</option>
+        <option>C06</option>
+        <option>C07</option>
+    </select>
+    <br>
+    <label class="infor">Email</label>
+    <input type="email" name="email" ><br>
+    <label class="infor">Điện thoại</label>
+    <input type="numer" name="phone" ><br>
+    <input class="button" type="submit" value="Đăng ký">
+    <input class="button" type="reset" value="Nhập lại">
+
+</form>
+
+</body>
+</html>

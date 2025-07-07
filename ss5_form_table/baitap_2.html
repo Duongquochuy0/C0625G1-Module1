@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Sở thích của bạn</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #f0f8ff;
+    }
+
+    .form-container {
+      width: 600px;
+      border: 5px solid #cceeff;
+      border-radius: 12px;
+      margin: 40px auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      overflow: hidden;
+    }
+
+    .form-title {
+      background-color: #cc3300;
+      color: white;
+      text-align: center;
+      font-size: 22px;
+      padding: 15px 0;
+      font-weight: 600;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    form {
+      padding: 25px 30px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: inline-block;
+      width: 100px;
+      font-weight: 600;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+      width: 350px;
+      padding: 7px 10px;
+      font-size: 14px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus {
+      border-color: #66afe9;
+      outline: none;
+    }
+
+    .checkbox-group {
+      margin-left: 100px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px 20px;
+      margin-bottom: 25px;
+      max-width: 450px;
+    }
+
+    .checkbox-group label {
+      color: #cc3300;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .form-buttons {
+      text-align: center;
+    }
+
+    .form-buttons input {
+      padding: 8px 16px;
+      margin: 0 10px;
+      font-size: 14px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background-color: #007BFF;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-buttons input:hover {
+      background-color: #0056b3;
+    }
+
+    .form-buttons input[type="reset"] {
+      background-color: #6c757d;
+    }
+
+    .form-buttons input[type="reset"]:hover {
+      background-color: #495057;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <div class="form-title">SỞ THÍCH CỦA BẠN</div>
+  <form>
+    <div class="form-group">
+      <label for="yourname">Họ và tên</label>
+      <input type="text" id="yourname" name="yourname">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email">
+    </div>
+
+    <div class="form-group">
+      <label>Sở thích</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="hobby" value="thethao"> Thể thao</label>
+        <label><input type="checkbox" name="hobby" value="amnhac"> Âm nhạc</label>
+        <label><input type="checkbox" name="hobby" value="docsach"> Đọc sách</label>
+        <label><input type="checkbox" name="hobby" value="luotweb"> Lướt web</label>
+        <label><input type="checkbox" name="hobby" value="choigame"> Chơi game</label>
+        <label><input type="checkbox" name="hobby" value="dienanh"> Điện ảnh</label>
+        <label><input type="checkbox" name="hobby" value="dulich"> Du lịch</label>
+      </div>
+    </div>
+
+    <div class="form-buttons">
+      <input type="submit" value="Gửi thông tin">
+      <input type="reset" value="Nhập lại">
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
