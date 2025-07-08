@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhập điểm sinh viên</title>
+</head>
+<body>
+<script>
+    let diemLy= parseFloat(prompt("Nhập điểm môn Lý:"))
+    let diemHoa= parseFloat(prompt("Nhập điểm môn Hóa:"))
+    let diemSinh= parseFloat(prompt("Nhập điểm môn Sinh:"))
+    let tong= diemLy+diemHoa+diemSinh;
+    let trungBinh= (diemLy+diemHoa+diemSinh)/3;
+    alert("Điểm tổng: " +tong);
+    alert("Điểm trung bình: " +trungBinh);
+</script>
+</body>
+</html>

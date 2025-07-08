@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền tệ</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th><label for="Amount">Amount</label></th>
+        <th>From Currency</th>
+        <th>To Currency</th>
+        <th></th>
+    </tr>
+    <tr>
+        <td><input type="text" id="nhap_tien"></td>
+        <td>
+            <select id="doi">
+                <option value="vnd">VND</option>
+                <option value="usd">USD</option>
+            </select>
+        </td>
+        <td>
+            <select id="saukhidoi">
+                <option value="vnd">VND</option>
+                <option value="usd">USD</option>
+            </select>
+        </td>
+        <td>
+            <button onclick="chuyenDoiTien()">Convert</button>
+        </td>
+    </tr>
+</table>
+
+<br>
+<p id="Result"></p>
+<script>
+    function chuyenDoiTien() {
+        let nhapTien = document.getElementById("nhap_tien").value;
+        let from = document.getElementById("doi").value;
+        let to = document.getElementById("saukhidoi").value;
+        let Result;
+
+        if (from == "usd" && to == "vnd") {
+            Result = "Result: " + (nhapTien * 26000) + " Đ";
+        } else if (from == "vnd" && to == "usd") {
+            Result = "Result: " + (nhapTien / 26000) + " $";
+        } else if (from == "vnd") {
+            Result = "Result: " + nhapTien + " Đ"
+        } else {
+            Result = "Result: " + nhapTien + " $"
+        }
+
+        document.getElementById("Result").innerHTML = Result;
+    }
+</script>
+</body>
+</html>
