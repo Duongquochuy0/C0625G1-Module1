@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let hoaHong;
+    function tinhHoaHong() {
+        let doanhThu = +prompt("Nhập doanh thu bán hàng");
+
+        if (doanhThu <= 600000) {
+            hoaHong = doanhThu * 0.03;
+            alert(`Hoa hồng nhận được ${hoaHong}`);
+        } else if (doanhThu <= 1200000) {
+            hoaHong = doanhThu * 0.05;
+            alert(`Hoa hồng nhận được ${hoaHong}`);
+        } else {
+            hoaHong = doanhThu * 0.07;
+            alert(`Hoa hồng nhận được ${hoaHong}`);
+        }
+
+    }
+
+    tinhHoaHong();
+</script>
+</body>
+</html>
