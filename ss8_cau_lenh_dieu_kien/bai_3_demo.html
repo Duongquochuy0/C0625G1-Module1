@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Máy tính đơn giản</title>
+</head>
+<body>
+<input type="text" id="view" readonly />
+<br/>
+<button onclick="inputValue('1')">1</button>
+<button onclick="inputValue('2')">2</button>
+<button onclick="inputValue('3')">3</button>
+<button onclick="inputValue('+')">+</button>
+<br/>
+<button onclick="inputValue('4')">4</button>
+<button onclick="inputValue('5')">5</button>
+<button onclick="inputValue('6')">6</button>
+<button onclick="inputValue('-')">-</button>
+<br/>
+<button onclick="inputValue('7')">7</button>
+<button onclick="inputValue('8')">8</button>
+<button onclick="inputValue('9')">9</button>
+<button onclick="inputValue('*')">*</button>
+<br/>
+<button onclick="inputValue('0')">0</button>
+<button onclick="inputValue('.')">.</button>
+<button onclick="clearView()">C</button>
+<button onclick="calculate()">=</button>
+<br/>
+<button onclick="inputValue('/')">/</button>
+
+<script>
+    const view = document.getElementById("view");
+
+    function inputValue(value) {
+        view.value += value;
+    }
+
+    function clearView() {
+        view.value = "";
+    }
+
+    function calculate() {
+        const expression = view.value;
+        // Kiểm tra xem biểu thức chỉ chứa số, toán tử và dấu ngoặc
+        if (/^[0-9+\-*/().\s]+$/.test(expression)) {
+            try {
+                // Dùng Function thay cho eval
+                const result = new Function('return ' + expression)();
+                view.value = result;
+            } catch (error) {
+                view.value = "Lỗi";
+            }
+        } else {
+            view.value = "Lỗi";
+        }
+    }
+</script>
+</body>
+</html>
