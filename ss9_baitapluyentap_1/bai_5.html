@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Xếp Loại Học Lực</title>
+</head>
+<body>
+<h2>Xếp Loại Học Lực</h2>
+
+<label>Điểm bài kiểm tra:</label><br>
+<input type="number" id="baiKiemTra" step="0.1"><br><br>
+
+<label>Điểm giữa kỳ:</label><br>
+<input type="number" id="giuaKy" step="0.1"><br><br>
+
+<label>Điểm cuối kỳ:</label><br>
+<input type="number" id="cuoiKy" step="0.1"><br><br>
+
+<button onclick="tinhHocLuc()">Xếp loại</button>
+
+<p id="ketQua"></p>
+
+<script>
+    function tinhHocLuc() {
+        let bt = parseFloat(document.getElementById("baiKiemTra").value);
+        let gk = parseFloat(document.getElementById("giuaKy").value);
+        let ck = parseFloat(document.getElementById("cuoiKy").value);
+
+        if (isNaN(bt) || isNaN(gk) || isNaN(ck)) {
+            document.getElementById("ketQua").innerText = "Vui lòng nhập đầy đủ điểm.";
+            return;
+        }
+
+        let dtb = (bt + 2 * gk + 3 * ck) / 6;
+        let xepLoai = "";
+
+        if (dtb >= 8.0) {
+            xepLoai = "Giỏi";
+        } else if (dtb >= 6.5) {
+            xepLoai = "Khá";
+        } else if (dtb >= 5.0) {
+            xepLoai = "Trung bình";
+        } else {
+            xepLoai = "Yếu";
+        }
+
+        document.getElementById("ketQua").innerText =
+            "Điểm trung bình: " + dtb.toFixed(2) + "\nXếp loại: " + xepLoai;
+    }
+</script>
+</body>
+</html>
