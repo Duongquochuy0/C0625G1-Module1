@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tìm số lớn nhất</title>
+</head>
+<body>
+<h2>Nhập 3 số để tìm số lớn nhất</h2>
+
+<label>Nhập số a:</label>
+<input type="number" id="a"><br><br>
+
+<label>Nhập số b:</label>
+<input type="number" id="b"><br><br>
+
+<label>Nhập số c:</label>
+<input type="number" id="c"><br><br>
+
+<button onclick="timMax()">Tìm số lớn nhất</button>
+
+<p id="ketQua"></p>
+
+<script>
+  function timMax() {
+    let a = parseFloat(document.getElementById("a").value);
+    let b = parseFloat(document.getElementById("b").value);
+    let c = parseFloat(document.getElementById("c").value);
+
+    let max;
+
+    if (a >= b && a >= c) {
+      max = a;
+    } else if (b >= a && b >= c) {
+      max = b;
+    } else {
+      max = c;
+    }
+
+    document.getElementById("ketQua").innerText = "Số lớn nhất là: " + max;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra chia hết</title>
+</head>
+<body>
+<h2>Kiểm tra a có chia hết cho b không</h2>
+<label>Nhập số a:</label>
+<input type="number" id="a"><br><br>
+<label>Nhập số b:</label>
+<input type="number" id="b"><br><br>
+<button onclick="kiemTra()">Kiểm tra</button>
+<p id="ketQua"></p>
+
+<script>
+    function kiemTra() {
+        let a = +document.getElementById("a").value;
+        let b = +document.getElementById("b").value;
+        let ketQua = (a % b === 0) ? `${a} chia hết cho ${b}` : `${a} không chia hết cho ${b}`;
+        document.getElementById("ketQua").innerText = ketQua;
+    }
+</script>
+</body>
+</html>

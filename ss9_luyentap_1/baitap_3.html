@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số nguyên</title>
+</head>
+<body>
+<h2>Kiểm tra số nguyên lớn hơn, nhỏ hơn hay bằng 0</h2>
+
+<label>Nhập một số nguyên:</label>
+<input type="number" id="soNguyen"><br><br>
+
+<button onclick="kiemTra()">Kiểm tra</button>
+
+<p id="ketQua"></p>
+
+<script>
+    function kiemTra() {
+        let so = +document.getElementById("soNguyen").value;
+        let ketQua = "";
+
+        if (so > 0) {
+            ketQua = `${so} là số lớn hơn 0.`;
+        } else if (so < 0) {
+            ketQua = `${so} là số nhỏ hơn 0.`;
+        } else {
+            ketQua = `Đây là số 0.`;
+        }
+
+        document.getElementById("ketQua").innerText = ketQua;
+    }
+</script>
+</body>
+</html>

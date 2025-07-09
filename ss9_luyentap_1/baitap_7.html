@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính cước điện thoại</title>
+</head>
+<body>
+<h2>Tính cước điện thoại hộ gia đình</h2>
+
+<label>Số phút gọi cố định nội mạng:</label>
+<input type="number" id="noiMang" value="0"><br><br>
+
+<label>Số phút gọi cố định liên mạng:</label>
+<input type="number" id="lienMang" value="0"><br><br>
+
+<label>Số phút gọi di động:</label>
+<input type="number" id="diDong" value="0"><br><br>
+
+<button onclick="tinhCuoc()">Tính cước</button>
+
+<p id="ketQua"></p>
+
+<script>
+  function tinhCuoc() {
+    let noiMang = parseFloat(document.getElementById("noiMang").value) || 0;
+    let lienMang = parseFloat(document.getElementById("lienMang").value) || 0;
+    let diDong = parseFloat(document.getElementById("diDong").value) || 0;
+
+    let giaNoiMang = 600;
+    let giaLienMang = 1200;
+    let giaDiDong = 2000;
+
+    let tongCuoc = (noiMang * giaNoiMang) +
+            (lienMang * giaLienMang) +
+            (diDong * giaDiDong);
+
+    document.getElementById("ketQua").innerText =
+            "Tổng cước điện thoại: " + tongCuoc.toLocaleString('vi-VN') + " VNĐ";
+  }
+</script>
+</body>
+</html>
