@@ -1,1 +1,1 @@
-git comit -m "nop chung chi kaban"
+input: prompt, document.getelandbyid() value
