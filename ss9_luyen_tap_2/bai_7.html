@@ -1,32 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Giải phương trình bậc 2</title>
 </head>
 <body>
+<h2>Giải phương trình bậc 2: ax² + bx + c = 0</h2>
+
+<input type="text" id="a" placeholder="Nhập hệ số a">
+<input type="text" id="b" placeholder="Nhập hệ số b">
+<input type="text" id="c" placeholder="Nhập hệ số c">
+<button onclick="giaiPTBac2()">Giải</button>
+
+<p id="ketQua"></p>
+
 <script>
-  function tinhphi() {
+  function giaiPTBac2() {
+    let a = +document.getElementById("a").value;
+    let b = +document.getElementById("b").value;
+    let c = +document.getElementById("c").value;
+    let ketQua = "";
 
-    let phiCoDinh = +prompt("Nhập phí cố định");
-    let cuocGoi = +prompt("Nhập phí cước gọi");
-    let cuocSMS = +prompt("Nhập phí SMS");
-    let goiCongThem = +prompt("Nhập phí gói cộng thêm");
-    let total = 0;
-
-    if (phiCoDinh <= 50000) {
-      total = (phiCoDinh + goiCongThem + cuocGoi + cuocSMS) * 0.03;
-      alert(`Cước điện thoại ${total} VDN`);
-    } else if (phiCoDinh <= 100000) {
-      total = (phiCoDinh + goiCongThem + cuocGoi + cuocSMS) * 0.05;
-      alert(`Cước điện thoại ${total} VND`);
+    if (a === 0) {
+      ketQua = "Đây không phải là phương trình bậc 2 (a phải khác 0).";
     } else {
-      total = (phiCoDinh + goiCongThem + cuocGoi + cuocSMS) * 0.07;
-      alert(`Cước điện thoại ${total} VND`);
-    }
-  }
+      let delta = b * b - 4 * a * c;
 
-  tinhphi();
+      if (delta > 0) {
+        let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+        let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+        ketQua = `Phương trình có 2 nghiệm phân biệt:<br>x₁ = ${x1}<br>x₂ = ${x2}`;
+      } else if (delta === 0) {
+        let x = -b / (2 * a);
+        ketQua = `Phương trình có nghiệm kép:<br>x = ${x}`;
+      } else {
+        ketQua = "Phương trình vô nghiệm (không có nghiệm thực).";
+      }
+    }
+
+    document.getElementById("ketQua").innerHTML = ketQua;
+  }
 </script>
 </body>
 </html>

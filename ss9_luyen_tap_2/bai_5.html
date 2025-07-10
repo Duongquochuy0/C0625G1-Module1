@@ -2,51 +2,27 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Xếp Loại Học Lực</title>
+    <title>Tính diện tích tam giác vuông khi biết 2 cạnh kề a, b</title>
 </head>
 <body>
-<h2>Xếp Loại Học Lực</h2>
-
-<label>Điểm bài kiểm tra:</label><br>
-<input type="number" id="baiKiemTra" step="0.1"><br><br>
-
-<label>Điểm giữa kỳ:</label><br>
-<input type="number" id="giuaKy" step="0.1"><br><br>
-
-<label>Điểm cuối kỳ:</label><br>
-<input type="number" id="cuoiKy" step="0.1"><br><br>
-
-<button onclick="tinhHocLuc()">Xếp loại</button>
-
-<p id="ketQua"></p>
+<h2>Tính diện tích tam giác vuông</h2>
+<input type="text" id="canhA" placeholder="Nhập cạnh a">
+<input type="text" id="canhB" placeholder="Nhập cạnh b">
+<button onclick="tinh()">Tính diện tích</button>
+<p id="dienTich"></p>
 
 <script>
-    function tinhHocLuc() {
-        let bt = parseFloat(document.getElementById("baiKiemTra").value);
-        let gk = parseFloat(document.getElementById("giuaKy").value);
-        let ck = parseFloat(document.getElementById("cuoiKy").value);
+    function tinh() {
+        let canhA = parseFloat(document.getElementById("canhA").value);
+        let canhB = parseFloat(document.getElementById("canhB").value);
 
-        if (isNaN(bt) || isNaN(gk) || isNaN(ck)) {
-            document.getElementById("ketQua").innerText = "Vui lòng nhập đầy đủ điểm.";
+        if (isNaN(canhA) || isNaN(canhB) || canhA <= 0 || canhB <= 0) {
+            document.getElementById("dienTich").innerText = "Vui lòng nhập hai cạnh hợp lệ (> 0).";
             return;
         }
 
-        let dtb = (bt+ gk  + ck) / 3;
-        let xepLoai = "";
-
-        if (dtb >= 8.0) {
-            xepLoai = "Giỏi";
-        } else if (dtb >= 6.5) {
-            xepLoai = "Khá";
-        } else if (dtb >= 5.0) {
-            xepLoai = "Trung bình";
-        } else {
-            xepLoai = "Yếu";
-        }
-
-        document.getElementById("ketQua").innerText =
-            `Điểm trung bình: ${dtb}` +
-            "\nXếp loại: " + xepLoai;
+        let dienTich = 0.5 * canhA * canhB;
+        document.getElementById("dienTich").innerText = `Diện tích hình tam giác vuông là: ${dienTich}`;
     }
 </script>
 </body>

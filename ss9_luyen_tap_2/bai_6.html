@@ -1,29 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Giải phương trình bậc nhất ax + b = 0</title>
 </head>
 <body>
-<script>
-    let hoaHong;
-    function tinhHoaHong() {
-        let doanhThu = +prompt("Nhập doanh thu bán hàng");
+<h2>Giải phương trình bậc nhất: ax + b = 0</h2>
 
-        if (doanhThu <= 600000) {
-            hoaHong = doanhThu * 0.03;
-            alert(`Hoa hồng nhận được ${hoaHong}`);
-        } else if (doanhThu <= 1200000) {
-            hoaHong = doanhThu * 0.05;
-            alert(`Hoa hồng nhận được ${hoaHong}`);
+<input type="text" id="heSoA" placeholder="Nhập hệ số a">
+<input type="text" id="heSoB" placeholder="Nhập hệ số b">
+<button onclick="giaiPhuongTrinh()">Giải</button>
+
+<p id="ketQua"></p>
+
+<script>
+    function giaiPhuongTrinh() {
+        let a = parseFloat(document.getElementById("heSoA").value);
+        let b = parseFloat(document.getElementById("heSoB").value);
+        let ketQua = "";
+
+        if (isNaN(a) || isNaN(b)) {
+            ketQua = "Vui lòng nhập số hợp lệ cho a và b.";
+        } else if (a === 0) {
+            if (b === 0) {
+                ketQua = "Phương trình có vô số nghiệm.";
+            } else {
+                ketQua = "Phương trình vô nghiệm.";
+            }
         } else {
-            hoaHong = doanhThu * 0.07;
-            alert(`Hoa hồng nhận được ${hoaHong}`);
+            let x = -b / a;
+            ketQua = `Nghiệm của phương trình là: x = ${x}`;
         }
 
+        document.getElementById("ketQua").innerText = ketQua;
     }
-
-    tinhHoaHong();
 </script>
 </body>
 </html>

@@ -2,29 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nhập số</title>
+    <title>Chuyển từ độ C sang độ F</title>
 </head>
 <body>
-<input type="number" placeholder="Nhập a" id="number1">
-<input type="number" placeholder="Nhập b" id="number2">
-<button onclick="tinh()">Kiểm tra</button>
-<div id="result"></div>
+<input type="text" id="doC" placeholder="Nhập độ C"><br>
+<button onclick="doi()">Đổi</button>
+<p id="doF"></p>
 <script>
-    function tinh() {
-        let num1 = parseFloat(document.getElementById("number1").value);
-        let num2 = parseFloat(document.getElementById("number2").value);
-        if (num2===0){
-            document.getElementById("result").innerHTML="Không thể chia cho 0";
-        }else{
-            if(num1 % num2===0){
-                document.getElementById("result").innerHTML=`${num1} chia hết cho ${num2} `
-            } else{
-                document.getElementById("result").innerHTML=`${num1} không chia hết cho ${num2} `
-            }
-        }
-
+    function doi() {
+        let doC=document.getElementById("doC").value;
+        let doF = doC * (9/5) + 32;
+      document.getElementById("doF").innerHTML=`${doC} độ C = ${doF} độ F`;
     }
 </script>
-
 </body>
 </html>

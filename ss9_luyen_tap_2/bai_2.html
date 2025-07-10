@@ -2,16 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nhập tuổi</title>
+    <title>Chuyển đổi từ mét sang feet</title>
 </head>
 <body>
+<input type="text" id="soM" placeholder="Nhập số mét"><br>
+<button onclick="doi()">Đổi</button>
+<p id="soF"></p>
 <script>
-  let tuoi= prompt("Nhập tuổi")
-  if(tuoi >=16){
-    alert("Bạn đã đủ tuổi nhập học")
-  } else {
-    alert("Cook")
-  }
+    function doi() {
+        let soM=document.getElementById("soM").value;
+        let soF = soM*3.2808;
+        document.getElementById("soF").innerHTML=`${soM} m = ${soF} ft`;
+    }
 </script>
 </body>
 </html>

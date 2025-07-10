@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác. Điều kiện để a,b,c là cạnh của một tam giác</title>
+</head>
+<body>
+<input type="number" id="canhA" placeholder="Nhập số thứ 1">
+<input type="number" id="canhB" placeholder="Nhập số thứ 2">
+<input type="number" id="canhC" placeholder="Nhập số thứ 3">
+<button onclick="check()">Kiểm Tra</button>
+<p id="result"></p>
+<script>
+    function check(){
+        let a=parseFloat(document.getElementById("canhA").value);
+        let b=parseFloat(document.getElementById("canhB").value);
+        let c=parseFloat(document.getElementById("canhC").value);
+        if(a>0 && b>0 && c>0){
+           if(a+b>c && b+c >a && a+c>b){
+               document.getElementById("result").innerText="3 số thực này là cạnh của 1 tam giác";
+           } else {
+               document.getElementById("result").innerText="3 số thực này không phải là cạnh của 1 tam giác";
+           }
+        } else{
+            document.getElementById("result").innerText="3 số thực này không phải là cạnh của 1 tam giác";
+        }
+    }
+</script>
+</body>
+</html>
