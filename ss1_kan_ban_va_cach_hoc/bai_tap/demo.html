@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+<form>
+    <input oninput="checkValidate()" id="name" placeholder="Nhập tên">
+    <span id="nameCheck"></span><br>
+    <p style="color: red" id="nameError"></p>
+
+    <input oninput="checkValidate()" id="address" placeholder="Nhập địa chỉ">
+    <span id="addressCheck"></span><br>
+    <p style="color: red" id="addressError"></p>
+
+    <button disabled id="myButton">Gửi</button>
+</form>
+
+<script>
+    function checkValidate() {
+        let name = document.getElementById("name").value;
+        let address = document.getElementById("address").value;
+
+        let check = true;
+
+
+        if (name.length < 5) {
+            document.getElementById("nameError").innerText = "Tên phải ít nhất 5 ký tự";
+            document.getElementById("nameCheck").innerText = "";
+            check = false;
+        } else {
+            document.getElementById("nameError").innerText = "";
+            document.getElementById("nameCheck").innerText = "✔";
+        }
+
+
+        if (address.length < 7) {
+            document.getElementById("addressError").innerText = "Địa chỉ phải ít nhất 7 ký tự";
+            document.getElementById("addressCheck").innerText = "";
+            check = false;
+        } else {
+            document.getElementById("addressError").innerText = "";
+            document.getElementById("addressCheck").innerText = "✔";
+        }
+
+
+        document.getElementById("myButton").disabled = !check;
+    }
+</script>
+</body>
+</html>
