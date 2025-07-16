@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Game Đoán Số (3 lượt, không dùng isNaN)</title>
 </head>
 <body>
-$END$
+<h2>Game: Hãy thử đoán xem!</h2>
+<button onclick="choiGame()">Chơi</button>
+
+<script>
+  function choiGame() {
+    let min = parseInt(prompt("Nhập số nhỏ nhất của khoảng:"));
+    let max = parseInt(prompt("Nhập số lớn nhất của khoảng:"));
+    if (min >= max) {
+      alert("Khoảng không hợp lệ. Hãy thử lại!");
+      return;
+    }
+
+    let soNgauNhien = Math.floor(Math.random() * (max - min + 1)) + min;
+    let soLanThu = 0;
+
+    while (soLanThu < 3) {
+      let doan = parseInt(prompt(`Lượt ${soLanThu + 1}/3 - Đoán số từ ${min} đến ${max}:`));
+      soLanThu++;
+
+      if (doan === soNgauNhien) {
+        alert(` Chính xác! Bạn đã đoán đúng sau ${soLanThu} lượt.`);
+        return;
+      } else if (doan < soNgauNhien) {
+        alert("Số bạn đoán nhỏ hơn.");
+      } else {
+        alert(" Số bạn đoán lớn hơn.");
+      }
+    }
+
+    alert(` Bạn đã hết 3 lượt! Số đúng là: ${soNgauNhien}`);
+  }
+</script>
 </body>
 </html>

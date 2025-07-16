@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Kiểm tra nhiệt độ</title>
 </head>
 <body>
-$END$
+<h2>Kết quả kiểm tra nhiệt độ:</h2>
+<p id="ketqua"></p>
+
+<script>
+
+  let nhietDo = prompt("Vui lòng nhập nhiệt độ hiện tại (theo độ C, chỉ nhập số):");
+  nhietDo = parseFloat(nhietDo);
+  let thongBao = "";
+  if (nhietDo > 100) {
+    thongBao = "Nhiệt độ quá cao! Vui lòng giảm nhiệt độ.";
+  } else if (nhietDo < 20) {
+    thongBao = "Nhiệt độ quá thấp! Vui lòng tăng nhiệt độ.";
+  } else {
+    thongBao = "Nhiệt độ bình thường.";
+  }
+  document.getElementById("ketqua").innerText = thongBao;
+</script>
 </body>
 </html>

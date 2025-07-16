@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<h2>Tổng của 30 số đầu tiên chia hết cho 7:</h2>
+<p id="ketqua"></p>
+
+<script>
+  let dem = 0;
+  let tong = 0;
+  let i = 0;
+
+  while (dem < 30) {
+    if (i % 7 === 0) {
+      tong += i;
+      dem++;
+    }
+    i++;
+  }
+
+  document.getElementById("ketqua").innerText = tong;
+</script>
 </body>
 </html>

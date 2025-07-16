@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Fibonacci không dùng mảng</title>
 </head>
 <body>
-$END$
+<h2>20 số đầu tiên trong dãy Fibonacci:</h2>
+<p id="fibonacci"></p>
+
+<script>
+  let a = 0, b = 1;
+  let ketQua = a + ", " + b;
+
+  for (let i = 3; i <= 20; i++) {
+    let next = a + b;
+    ketQua += ", " + next;
+    a = b;
+    b = next;
+  }
+
+  document.getElementById("fibonacci").innerText = ketQua;
+</script>
 </body>
 </html>

@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<h2>Kết quả FizzBuzz:</h2>
+<pre id="ketqua"></pre>
+
+<script>
+  let output = "";
+
+  for (let i = 1; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      output += "FizzBuzz\n";
+    } else if (i % 3 === 0) {
+      output += "Fizz\n";
+    } else if (i % 5 === 0) {
+      output += "Buzz\n";
+    } else {
+      output += i + "\n";
+    }
+  }
+
+  document.getElementById("ketqua").innerText = output;
+</script>
 </body>
 </html>

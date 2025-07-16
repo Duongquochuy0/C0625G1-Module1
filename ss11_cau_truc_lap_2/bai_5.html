@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<h2>Tổng của 20 số đầu tiên trong dãy Fibonacci:</h2>
+<p id="ketqua"></p>
+
+<script>
+  let a = 0, b = 1;
+  let tong = a + b;
+  let count = 2;
+
+  while (count < 20) {
+    let next = a + b;
+    tong += next;
+    a = b;
+    b = next;
+    count++;
+  }
+
+  document.getElementById("ketqua").innerText = tong;
+</script>
 </body>
 </html>
