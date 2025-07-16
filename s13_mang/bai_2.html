@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Chèn dấu "-" giữa các số chẵn</title>
+</head>
+<body>
+<h2>Chèn dấu -</h2>
+
+<label>Nhập chuỗi số:</label><br>
+<input type="text" id="inputNumber"><br><br>
+
+<button onclick="xuLy()">Chèn</button>
+
+<p>Kết quả: <span id="ketQua"></span></p>
+
+<script>
+  function chenDauGach(chuoi) {
+    if (chuoi.length === 0) return "";
+
+    let ketQua = chuoi[0];
+
+    for (let i = 1; i < chuoi.length; i++) {
+      const soTruoc = parseInt(chuoi[i - 1]);
+      const soHienTai = parseInt(chuoi[i]);
+
+      if (soTruoc % 2 === 0 && soHienTai % 2 === 0) {
+        ketQua += "-";
+      }
+
+      ketQua += chuoi[i];
+    }
+
+    return ketQua;
+  }
+
+  function xuLy() {
+    const dauVao = document.getElementById("inputNumber").value;
+    const ketQua = chenDauGach(dauVao);
+    document.getElementById("ketQua").textContent = ketQua;
+  }
+</script>
+</body>
+</html>

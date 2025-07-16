@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Đếm chữ nguyên âm</title>
+</head>
+<body>
+<script>
+  let chuoi = "Hôm nay trời thật đẹp và oi bức";
+
+  let demNguyenAm = 0;
+  let nguyenAm = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+
+  for (let i = 0; i < chuoi.length; i++) {
+    let kyTu = chuoi[i];
+    if (nguyenAm.includes(kyTu)) {
+      demNguyenAm++;
+    }
+  }
+
+  document.write(`Số lượng chữ nguyên âm trong chuỗi là: ${demNguyenAm}`);
+</script>
+</body>
+</html>

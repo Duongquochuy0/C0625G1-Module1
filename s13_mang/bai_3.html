@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi chữ hoa và thường</title>
+</head>
+<body>
+
+<h3>Chuyển đổi chữ hoa thành thường và ngược lại</h3>
+
+<label>Nhập chuỗi:</label>
+<input type="text" id="inputString">
+<button onclick="chuyenDoi()">Chuyển đổi</button>
+
+<p><strong>Kết quả:</strong> <span id="outputString"></span></p>
+
+<script>
+    function chuyenDoi() {
+        let string = document.getElementById("inputString").value;
+        const upCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const lowCase = "abcdefghijklmnopqrstuvwxyz";
+        let listString = [];
+
+        for (let i = 0; i < string.length; i++) {
+            if (upCase.includes(string[i])) {
+                listString.push(string[i].toLowerCase());
+            } else if (lowCase.includes(string[i])) {
+                listString.push(string[i].toUpperCase());
+            } else {
+                listString.push(string[i]);
+            }
+        }
+        document.getElementById("outputString").textContent = listString.join('');
+    }
+</script>
+
+</body>
+</html>
