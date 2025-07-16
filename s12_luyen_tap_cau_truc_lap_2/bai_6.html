@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>In Hình Trái Tim</title>
 </head>
 <body>
-$END$
+<h3>Hình trái tim</h3>
+<pre id="output"></pre>
+
+<script>
+  let output = "";
+  let size = 10;
+
+  for (let i = size / 2; i < size; i += 2) {
+    for (let j = 1; j < size - i; j += 2) output += " ";
+    for (let j = 1; j <= i; j++) output += "*";
+    for (let j = 1; j <= size - i; j++) output += " ";
+    for (let j = 1; j <= i; j++) output += "*";
+    output += "\n";
+  }
+  for (let i = size; i >= 1; i--) {
+    for (let j = 0; j < size - i; j++) output += " ";
+    for (let j = 1; j <= i * 2 - 1; j++) output += "*";
+    output += "\n";
+  }
+
+  document.getElementById("output").innerText = output;
+</script>
 </body>
 </html>

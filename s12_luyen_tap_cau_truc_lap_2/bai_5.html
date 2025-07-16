@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Tính Lãi Ngân Hàng (Lãi Kép)</title>
 </head>
 <body>
-$END$
+<h3>Tính lãi ngân hàng (lãi mẹ đẻ lãi con)</h3>
+<pre id="output"></pre>
+
+<script>
+  let soTienGoc = +prompt("Nhập số tiền ban đầu (VND):");
+  let soThang = +prompt("Nhập số tháng gửi:");
+  let laiSuatThang = +prompt("Nhập lãi suất hàng tháng (%):");
+  let laiSuat = laiSuatThang / 100;
+  let soTienCuoiKy = soTienGoc;
+
+  for (let i = 1; i <= soThang; i++) {
+    soTienCuoiKy += soTienCuoiKy * laiSuat;
+  }
+  let output = `Số tiền ban đầu: ${soTienGoc.toLocaleString()} VND\n`;
+  output += `Số tháng gửi: ${soThang} tháng\n`;
+  output += `Lãi suất hàng tháng: ${laiSuatThang}%\n`;
+  output += `Số tiền sau ${soThang} tháng: ${soTienCuoiKy} VND`;
+
+  document.getElementById("output").innerText = output;
+</script>
 </body>
 </html>

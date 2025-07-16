@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Dãy Fibonacci</title>
 </head>
-<body>
-$END$
+<h2>Dãy Fibonacci:</h2>
+<pre id="ketqua"></pre>
+
+<script>
+  let a = 0, b = 1;
+  let output = `${a}\n${b}\n`;
+
+  for (let i = 3; i <= 20; i++) {
+    let next = a + b;
+    output += next + "\n";
+    a = b;
+    b = next;
+  }
+
+  document.getElementById("ketqua").innerText = output;
+</script>
 </body>
 </html>
