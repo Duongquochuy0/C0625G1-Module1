@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Nhập số feet muốn đổi</p>
+<input type="number" placeholder="nhập feet" id="feet"><br>
+<button onclick="changeToMeters()">Đổi</button>
+<br>
+<input type="number" placeholder="Nhập Meters" id="meters"><br>
+<button onclick="changeToFeet()">Đổi</button>
+<p id="result"><strong></strong><br></p>
+
+<script>
+    function changeToMeters() {
+        let feet = document.getElementById("feet").value;
+        if (feet === "") return;
+        let meters = 0.305 * feet;
+        document.getElementById("result").innerHTML += `${feet} feet bằng ${meters} meters<br>`;
+    }
+
+    function changeToFeet() {
+        let meters = document.getElementById("meters").value;
+        if (meters === "") return;
+        let feet = 3.279 * meters;
+        document.getElementById("result").innerHTML += `${meters} meters bằng ${feet} feet<br>`;
+    }
+</script>
+
+</body>
+</html>

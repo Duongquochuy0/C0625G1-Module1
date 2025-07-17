@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số nguyên tố</title>
+</head>
+<body>
+<p>Nhập số muốn kiểm tra:</p>
+<input type="number" placeholder="Nhập số muốn kiểm tra" id="numbers">
+<button onclick="check(numbers)">Kiểm tra</button>
+<p id="result"></p>
+<script>
+    function check(numbers) {
+        let number = +document.getElementById("numbers").value;
+        let result = document.getElementById("result");
+
+        if (number < 2) {
+            result.innerText = `${number} không phải là số nguyên tố`;
+            return;
+        }
+        let isPrime = true;
+        for (let i = 2; i < number; i++) {
+            if (number % i === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime) {
+            result.innerText = `${number} là số nguyên tố`;
+        } else {
+            result.innerText = `${number} không phải là số nguyên tố`;
+        }
+    }
+</script>
+</body>
+</html>
