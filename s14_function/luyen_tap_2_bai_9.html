@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9</title>
+</head>
+<body>
+<input type="text" id="arrayInput" placeholder="Nhập mảng, "><br>
+<input type="text" id="charInput" placeholder="Nhập 1 ký tự cần kiểm tra"><br>
+<button onclick="kiemTraKyTu()">Kiểm tra</button>
+<p id="result"></p>
+<script>
+    function xoaKhoangTrang(str) {
+        let ketQua = "";
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] !== " ") {
+                ketQua += str[i];
+            }
+        }
+        return ketQua;
+    }
+    function demKyTuTrongMang(mang, kyTu) {
+        let count = 0;
+        for (let i = 0; i < mang.length; i++) {
+            if (mang[i] === kyTu) {
+                count++;
+            }
+        }
+
+        if (count > 0) {
+            return count;
+        } else {
+            return -1;
+        }
+    }
+    function kiemTraKyTu() {
+        let arrStr = document.getElementById("arrayInput").value;
+        let char = document.getElementById("charInput").value;
+        let arr = arrStr.split(",");
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = xoaKhoangTrang(arr[i]);
+        }
+        let ketQua = demKyTuTrongMang(arr, char);
+        let resultElement = document.getElementById("result");
+        if (ketQua === -1) {
+            resultElement.innerText = "'" + char + "' không có trong mảng";
+        } else {
+            resultElement.innerText = "'" + char + "' xuất hiện " + ketQua + " lần trong mảng";
+        }
+    }
+</script>
+</body>
+</html>

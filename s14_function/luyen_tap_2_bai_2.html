@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<label>Nhập bán kính: </label>
+<input type="number" id="radius" placeholder="Nhập bán kính">
+<button onclick="tinhToan()">Tính</button>
+<p id="output"></p>
+<script>
+    const PI = 3.1416;
+    function tinhDienTichHinhTron(r) {
+        return PI * r * r;
+    }
+    function tinhChuViHinhTron(r) {
+        return 2 * PI * r;
+    }
+    function tinhToan() {
+        let r = parseFloat(document.getElementById("radius").value);
+        let output = document.getElementById("output");
+        let dienTich = tinhDienTichHinhTron(r);
+        let chuVi = tinhChuViHinhTron(r);
+        output.innerText = "Diện tích: " + dienTich + "\nChu vi: " + chuVi;
+    }
+</script>
+
+</body>
+</html>

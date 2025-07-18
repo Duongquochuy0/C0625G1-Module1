@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 8</title>
+</head>
+<body>
+<input type="text" id="number" placeholder="Nhập vào dãy số nguyên">
+<button onclick="xuLy()">Đảo ngược</button>
+<p id="result"></p>
+<script>
+  function daoNguocMang(arr) {
+    return arr.reverse();
+  }
+  function xuLy() {
+    let input = document.getElementById("number").value;
+    let arr = input.split(',').map(Number);
+    let arrDao = daoNguocMang(arr);
+    document.getElementById("result").innerText = `Mảng sau khi đảo ngược: ${arrDao.join(', ')}`;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+<input type="number" placeholder="Nhập vào số nguyên thứ nhất" id="num1"><br>
+<input type="number" placeholder="Nhập vào số nguyên thứ hai" id="num2"><br>
+<input type="number" placeholder="Nhập vào số nguyên thứ ba" id="num3"><br>
+<button onclick="check()">Kiểm tra</button>
+<p id="result"></p>
+<script>
+    function timSoNhoNhat(a, b, c) {
+        let min = a;
+        if (b < min) {
+            min = b;
+        }
+        if (c < min) {
+            min = c;
+        }
+        return min;
+    }
+    function check(){
+        let a=parseFloat(document.getElementById("num1").value);
+        let b=parseFloat(document.getElementById("num2").value);
+        let c=parseFloat(document.getElementById("num3").value);
+        let min= timSoNhoNhat(a,b,c);
+        document.getElementById("result").innerText=` Số nhỏ nhất là ${min} `;
+    }
+</script>
+</body>
+</html>

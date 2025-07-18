@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3 </title>
+</head>
+<body>
+<label>Nhập số : </label>
+<input type="number" id="number" placeholder="Nhập số">
+<button onclick="tinhGiaiThua()">Tính</button>
+<p id="output"></p>
+<script>
+    function giaiThua(n) {
+        if (n === 0 || n === 1) {
+            return 1;
+        }
+        return n * giaiThua(n - 1);
+    }
+    function tinhGiaiThua() {
+        let n = parseInt(document.getElementById("number").value);
+        let output = document.getElementById("output");
+
+        if (isNaN(n) || n < 0) {
+            output.innerText = "Vui lòng nhập số nguyên không âm.";
+            return;
+        }
+        let ketQua = giaiThua(n);
+        output.innerText = `Giai thừa của ${n} là ${ketQua}`;
+    }
+</script>
+</body>
+</html>

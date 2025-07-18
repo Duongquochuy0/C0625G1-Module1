@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+<input type="number" placeholder="Nhập vào số bất kì" id="number">
+<button onclick="check()">Kiểm tra</button>
+<p id="result"></p>
+<script>
+  function kiemTraSoNguyenDuong(n) {
+    if (n > 0 && n % 1 === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  function check(){
+    let n=parseFloat(document.getElementById("number").value);
+    let result= document.getElementById("result");
+    if(kiemTraSoNguyenDuong(n)){
+      document.getElementById("result").innerText=`${n} là số nguyên dương`
+    } else{
+      document.getElementById("result").innerText=`${n} không phải là số nguyên dương`
+    }
+  }
+</script>
+</body>
+</html>

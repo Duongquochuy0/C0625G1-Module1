@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7</title>
+</head>
+<body>
+<input type="number" id="num1" placeholder="Nhập số thứ nhất"><br>
+<input type="number" id="num2" placeholder="Nhập số thứ hai"><br>
+<button onclick="check()">Đổi chỗ</button>
+<p id="result"></p>
+<script>
+    function doiCho(a, b) {
+        let temp = a;
+        a = b;
+        b = temp;
+        return [a, b];
+    }
+    function check() {
+        let a = parseInt(document.getElementById("num1").value);
+        let b = parseInt(document.getElementById("num2").value);
+        let ketQua = doiCho(a, b);
+        document.getElementById("result").innerText =
+            `Sau khi đổi chỗ:\nSố 1: ${ketQua[0]} - Số 2: ${ketQua[1]}`;
+    }
+</script>
+</body>
+</html>

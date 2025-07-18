@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<input type="text" id="nhapVao" placeholder="Nhập ký tự 1 ký tự">
+<button onclick="kiemTra()">Kiểm tra</button>
+<p id="result"></p>
+<script>
+  function kiemTra(){
+    let n= document.getElementById("nhapVao").value;
+    if (n>0||n<0||n===0){
+        document.getElementById("result").innerText=`${n} là ký tự số `
+    } else {
+      document.getElementById("result").innerText=`${n} không phải là số `
+    }
+  }
+</script>
+</body>
+</html>

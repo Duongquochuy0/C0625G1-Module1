@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 20</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt("Nhập độ dài mảng:"));
+    let arr = [];
+    for (let i = 0; i < n; i++) {
+        let num = parseInt(prompt(`Nhập phần tử thứ ${i + 1}:`));
+        arr.push(num);
+    }
+    alert("Mảng bạn vừa nhập:\n" + arr.join(", "));
+    let sum = 0;
+    for (let i = 1; i < arr.length; i += 2) {
+        if (arr[i] % 2 === 0) {
+            sum += arr[i];
+        }
+    }
+    alert("Tổng các phần tử chẵn ở vị trí lẻ là: " + sum);
+</script>
+</body>
+</html>
