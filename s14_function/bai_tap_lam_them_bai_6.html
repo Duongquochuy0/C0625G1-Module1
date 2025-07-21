@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<script>
+    function checkString(str) {
+        const vowels = ['a', 'e', 'i', 'o', 'u',
+            'A', 'E', 'I', 'O', 'U'];
+        const result = [];
+
+        for (let char of str) {
+            if (vowels.includes(char)) {
+                result.push(char);
+            }
+        }
+
+        alert("Nguyên âm trong chuỗi là: " + result.join(", "));
+    }
+    checkString("Huy dep trai");
+
+</script>
+</body>
+</html>
