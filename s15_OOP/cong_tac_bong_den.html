@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Công tắc và bóng đèn</title>
+</head>
+<body>
+<script>
+    class BongDen {
+        constructor(status) {
+            this.status = status;
+        }
+
+        turnOn() {
+            this.status = true;
+        }
+
+        turnOff() {
+            this.status = false;
+        }
+
+        getStatus() {
+            return this.status;
+        }
+    }
+
+    class CongTac {
+        constructor(lamp, status) {
+            this.status = status;
+            this.lamp = lamp;
+        }
+
+        connectToLamp(lamp) {
+            this.lamp = lamp;
+        }
+
+        moCongTac() {
+            this.status = true;
+            this.lamp.turnOn();
+        }
+
+        dongCongTac() {
+            this.status = false;
+            this.lamp.turnOff();
+        }
+
+        getStatus() {
+            return this.status;
+        }
+    }
+
+    let bongDen1 = new BongDen(false);
+    let congTac1 = new CongTac(bongDen1, false);
+    for (let i = 1; i <= 10; i++) {
+        congTac1.moCongTac();
+        alert("Lần " + i + " - Công tắc BẬT, trạng thái bóng đèn: " + (bongDen1.getStatus() ? "BẬT" : "TẮT"));
+        congTac1.dongCongTac();
+        alert("Lần " + i + " - Công tắc TẮT, trạng thái bóng đèn: " + (bongDen1.getStatus() ? "BẬT" : "TẮT"));
+    }
+
+</script>
+</body>
+</html>

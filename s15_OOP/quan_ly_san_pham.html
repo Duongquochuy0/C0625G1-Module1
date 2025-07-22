@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Thêm sản phẩm mới</h2>
+<input type="text" id="productInput" placeholder="Nhập tên sản phẩm">
+<button onclick="addProduct()">Thêm</button>
+<h2>Danh sách sản phẩm</h2>
+<p><span id="total"></span> sản phẩm</p>
+<table>
+  <thead>
+  <tr>
+    <th>STT</th>
+    <th>Tên sản phẩm</th>
+    <th>Thao tác</th>
+  </tr>
+  </thead>
+  <tbody id="productTable"></tbody>
+</table>
+<script>
+  class QuanLySanPham{
+    constructor(stt,name,action) {
+      this.stt=stt;
+      this.name=name;
+      this.action=action;
+    }
+  }
+  let quanly= new QuanLySanPham(1,"Nokia","Xóa");
+
+</script>
+</body>
+</html>

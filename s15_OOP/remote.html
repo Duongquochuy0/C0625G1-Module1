@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Remote</title>
+</head>
+<body>
+<script>
+    class Remote {
+        constructor(id, tv) {
+            this.ma = id;
+            this.tv = tv;
+        }
+
+        chuyenKenh(channel) {
+            this.tv.channel = channel;
+        }
+
+        amLuong(volume) {
+            this.tv.volume = volume;
+        }
+    }
+
+    class Tivi {
+        constructor(channel, volume) {
+            this.channel = channel;
+            this.volume = volume;
+            this.status = false;
+        }
+
+        getChannelTV() {
+            return this.channel;
+        }
+
+        getVolumeTV() {
+            return this.volume;
+        }
+
+        getStatus() {
+            if (this.status) {
+                alert("Tivi đang bật");
+            } else {
+                alert("Tivi đang tắt");
+            }
+        }
+
+        turnOn() {
+            this.status = true;
+        }
+
+        turnOff() {
+            this.status = false;
+        }
+
+        setChannelTv(new_channel) {
+            this.channel = new_channel;
+        }
+
+        setVolumeTv(new_volume) {
+            this.volume = new_volume;
+        }
+    }
+
+    let Xiaomi = new Tivi(1, 25);
+    let remote1 = new Remote(1, Xiaomi);
+
+    Xiaomi.turnOn();
+    Xiaomi.getStatus();
+
+    Xiaomi.setChannelTv(7);
+    alert("Kênh hiện tại " + Xiaomi.getChannelTV());
+
+    remote1.chuyenKenh(3);
+    remote1.amLuong(12);
+
+    alert("Kênh vừa chuyển tới "+ Xiaomi.getChannelTV());
+    alert("Âm lượng "+Xiaomi.getVolumeTV());
+</script>
+</body>
+</html>
