@@ -1,35 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Quản lý sản phẩm (OOP)</title>
+    <style>
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #aaa;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input {
+            padding: 6px;
+            width: 200px;
+        }
+        button {
+            padding: 6px 12px;
+            margin-left: 4px;
+        }
+    </style>
 </head>
 <body>
+
 <h2>Thêm sản phẩm mới</h2>
 <input type="text" id="productInput" placeholder="Nhập tên sản phẩm">
-<button onclick="addProduct()">Thêm</button>
+<button onclick="quanLy.themSanPham()">Thêm</button>
+
 <h2>Danh sách sản phẩm</h2>
 <p><span id="total"></span> sản phẩm</p>
 <table>
-  <thead>
-  <tr>
-    <th>STT</th>
-    <th>Tên sản phẩm</th>
-    <th>Thao tác</th>
-  </tr>
-  </thead>
-  <tbody id="productTable"></tbody>
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Tên sản phẩm</th>
+        <th>Thao tác</th>
+    </tr>
+    </thead>
+    <tbody id="productTable"></tbody>
 </table>
-<script>
-  class QuanLySanPham{
-    constructor(stt,name,action) {
-      this.stt=stt;
-      this.name=name;
-      this.action=action;
-    }
-  }
-  let quanly= new QuanLySanPham(1,"Nokia","Xóa");
 
+<script>
+
+    class SanPham {
+        constructor(ten) {
+            this.ten = ten;
+        }
+    }
+    class QuanLySanPham {
+        constructor() {
+            this.danhSach = [
+                new SanPham("Sony Xperia"),
+                new SanPham("Samsung Galaxy"),
+                new SanPham("Nokia 6"),
+                new SanPham("Xiaomi Redmi Note 4"),
+                new SanPham("Apple iPhone 6S"),
+                new SanPham("Xiaomi Mi 5s Plus"),
+                new SanPham("Apple iPhone 8 Plus"),
+                new SanPham("Oppo A37"),
+                new SanPham("Huawei P9")
+            ];
+            this.hienThiDanhSach();
+        }
+
+        themSanPham() {
+            const input = document.getElementById("productInput");
+            const ten = input.value.trim();
+
+            if (ten === "") {
+                alert("Vui lòng nhập tên sản phẩm.");
+                return;
+            }
+
+            this.danhSach.push(new SanPham(ten));
+            input.value = "";
+            this.hienThiDanhSach();
+        }
+
+        suaSanPham(index) {
+            const sanPhamHienTai = this.danhSach[index];
+            const tenMoi = prompt("Nhập tên mới cho sản phẩm:", sanPhamHienTai.ten);
+
+            if (tenMoi !== null) {
+                const tenMoiTrim = tenMoi.trim();
+                if (tenMoiTrim === "") {
+                    alert("Tên mới không được để trống.");
+                    return;
+                }
+                this.danhSach[index].ten = tenMoiTrim;
+                this.hienThiDanhSach();
+            }
+        }
+
+        xoaSanPham(index) {
+            if (confirm("Bạn có chắc muốn xoá sản phẩm này không?")) {
+                this.danhSach.splice(index, 1);
+                this.hienThiDanhSach();
+            }
+        }
+
+        hienThiDanhSach() {
+            const tbody = document.getElementById("productTable");
+            tbody.innerHTML = "";
+            document.getElementById("total").innerText = this.danhSach.length;
+
+            this.danhSach.forEach((sp, i) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${i + 1}</td>
+                    <td>${sp.ten}</td>
+                    <td>
+                        <button onclick="quanLy.suaSanPham(${i})">Sửa</button>
+                        <button onclick="quanLy.xoaSanPham(${i})">Xoá</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+    }
+
+    // Khởi tạo đối tượng quản lý sản phẩm
+    const quanLy = new QuanLySanPham();
 </script>
+
 </body>
 </html>
