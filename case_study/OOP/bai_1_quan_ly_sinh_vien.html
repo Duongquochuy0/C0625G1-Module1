@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 1</title>
+</head>
+<body>
+<button onclick="themMoiHocVien()">Thêm mới học viên</button>
+<button onclick="suaHocVien()">Sửa thông tin học viên</button>
+<button onclick="xoaHocVien()">Xóa học viên</button>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>Mã Học Viên</th>
+    <th>Tên</th>
+    <th>Lớp</th>
+    <th>Email</th>
+    <th>Ngày Sinh</th>
+    <th>Module</th>
+  </tr>
+  </thead>
+  <tbody id="tbody"></tbody>
+</table>
+
+<script>
+  class HocVien {
+    constructor(id, name, className, email, date,module) {
+      this.id = id;
+      this.name = name;
+      this.className = className;
+      this.email = email;
+      this.date = date;
+      this.module=module;
+    }
+
+    getId() { return this.id; }
+    setId(id) { this.id = id; }
+
+    getName() { return this.name; }
+    setName(name) { this.name = name; }
+
+    getClassName() { return this.className; }
+    setClassName(className) { this.className = className; }
+
+    getEmail() { return this.email; }
+    setEmail(email) { this.email = email; }
+
+    getDate() { return this.date; }
+    setDate(date) { this.date = date; }
+    getModule() { return this.module; }
+    setModule(module) { this.module = module; }
+  }
+
+
+  let hocVien = [
+    new HocVien("HV-0001", "Nguyễn Văn A", "C1022G1", "nguyenvana@gmail.com", "01/01/2004","1"),
+    new HocVien("HV-0002","Nguyễn Văn B","C1122G1","nguyenvanb@gmail.com","02/02/2004","1"),
+    new HocVien("HV-0003","Nguyễn Văn C","C1122G1","nguyenvanc@gmail.com","03/03/2004","1")
+  ];
+
+  function hienThiDanhSach() {
+    let tbody = document.getElementById("tbody");
+    tbody.innerHTML = "";
+    for (let hv of hocVien) {
+      let row = `<tr>
+          <td>${hv.getId()}</td>
+          <td>${hv.getName()}</td>
+          <td>${hv.getClassName()}</td>
+          <td>${hv.getEmail()}</td>
+          <td>${hv.getDate()}</td>
+          <td>${hv.getModule()}</td>
+        </tr>`;
+      tbody.innerHTML += row;
+    }
+  }
+
+  function themMoiHocVien() {
+    let id = prompt("Nhập mã học viên:");
+    if (!/^HV-\d{4}$/.test(id)) {
+      alert("Mã học viên không hợp lệ");
+      return;
+    }
+    if (hocVien.some(hv => hv.getId() === id)) {
+      alert("Mã học viên đã tồn tại. Vui lòng nhập mã khác.");
+      return;
+    }
+
+    let name = prompt("Nhập tên học viên:");
+    if (!name || name.length > 50) {
+      alert("Tên không được rỗng và tối đa 50 ký tự.");
+      return;
+    }
+    let className= prompt("Nhập lớp:")
+    let module = prompt("Nhập module (1 - 6):");
+    if (!/^[1-6]$/.test(module)) {
+      alert("Module phải là số từ 1 đến 6.");
+      return;
+    }
+
+    let email = prompt("Nhập email:");
+    if (!email) {
+      alert("Email không được để trống.");
+      return;
+    }
+
+    let date = prompt("Nhập ngày sinh (dd/mm/yyyy):");
+    if (!/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d{2}$/.test(date)) {
+      alert("Ngày sinh không hợp lệ");
+      return;
+    }
+
+    let newHV = new HocVien(id, name, className, email, date, module);
+    hocVien.push(newHV);
+    hienThiDanhSach();
+  }
+
+
+  function suaHocVien() {
+    let id = prompt("Nhập mã học viên cần sửa:");
+    let index = hocVien.findIndex(hv => hv.getId() === id);
+    if (index !== -1) {
+      let hv = hocVien[index];
+      hv.setName(prompt("Tên mới:", hv.getName()));
+      hv.setClassName(prompt("Lớp mới:", hv.getClassName()));
+      hv.setEmail(prompt("Email mới:", hv.getEmail()));
+      hv.setDate(prompt("Ngày sinh mới:", hv.getDate()));
+      hv.setModule(prompt("Nhập module mới:", hv.getModule()))
+      hienThiDanhSach();
+    } else {
+      alert("Không tìm thấy học viên.");
+    }
+  }
+
+  function xoaHocVien() {
+    let id = prompt("Nhập mã học viên cần xóa:");
+    let index = hocVien.findIndex(hv => hv.getId() === id);
+    if (index !== -1) {
+      if (confirm("Bạn có chắc chắn muốn xóa học viên này?")) {
+        hocVien.splice(index, 1);
+        hienThiDanhSach();
+      }
+    } else {
+      alert("Không tìm thấy học viên.");
+    }
+  }
+
+  hienThiDanhSach();
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<script>
+    function chuanHoaXau(s) {
+        let result = '';
+        let i = 0;
+        s = s.trim().toLowerCase();
+        while (i < s.length) {
+            while (s[i] === ' ') i++;
+            if (i >= s.length) break;
+            result += s[i].toUpperCase();
+            i++;
+            while (i < s.length && s[i] !== ' ') {
+                result += s[i];
+                i++;
+            }
+            result += ' ';
+        }
+
+        return result.trim();
+    }
+    alert(chuanHoaXau("      tRuong   TaN   HAI   "));
+
+
+</script>
+</body>
+</html>

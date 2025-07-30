@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3 - Vẽ Tam Giác Cân Rỗng</title>
+</head>
+<body>
+<input type="number" placeholder="Nhập chiều cao của tam giác" id="height">
+<button onclick="veTamGiac()">Vẽ tam giác</button>
+<pre id="result"></pre>
+
+<script>
+    function veTamGiac() {
+        let h = parseInt(document.getElementById("height").value);
+        let output = "";
+        for (let i = 1; i <= h; i++) {
+            let line = "";
+            for (let j = 1; j <= h - i; j++) {
+                line += " ";
+            }
+            for (let k = 1; k <= 2 * i - 1; k++) {
+                if (k === 1 || k === 2 * i - 1 || i === h) {
+                    line += "*";
+                } else {
+                    line += " ";
+                }
+            }
+            output += line + "\n";
+        }
+
+        document.getElementById("result").innerText = output;
+    }
+</script>
+</body>
+</html>

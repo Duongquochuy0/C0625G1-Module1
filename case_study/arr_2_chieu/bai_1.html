@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<script>
+    function tongChan(mang2Chieu){
+        let tong =0;
+        for (let i = 0; i <mang2Chieu.length ; i++) {
+            for (let j = 0; j <mang2Chieu[i].length ; j++) {
+                if (mang2Chieu[i][j] %2===0){
+                    tong += mang2Chieu[i][j];
+                }
+            }
+        }
+        return tong;
+    }
+    let m = +prompt("Nhập số hàng ");
+    let n = +prompt("Nhập số cột");
+    let mang2Chieu=[];
+    for (let i = 0; i <m ; i++) {
+        let row =[];
+        for (let j = 0; j <n ; j++) {
+            let value = +prompt(`Nhap phan tu hang ${i+1}, cột ${j+1}`)
+            row.push(value);
+        }
+       mang2Chieu.push(row)
+    }
+    let tong = tongChan(mang2Chieu);
+    alert(tong);
+</script>
+</body>
+</html>

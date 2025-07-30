@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<script>
+  function demKyTuChung(s1, s2) {
+    let count1 = demTungChuoi(s1);
+    let count2 = demTungChuoi(s2);
+    let total = 0;
+    for (let char in count1) {
+      if (char in count2) {
+        if (count1[char] < count2[char]) {
+          total += count1[char];
+        } else {
+          total += count2[char];
+        }
+      }
+    }
+
+    return total;
+  }
+
+  function demTungChuoi(s) {
+    const count = {};
+    for (let char of s) {
+      if (char in count) {
+        count[char]++;
+      } else {
+        count[char] = 1;
+      }
+    }
+    return count;
+  }
+  alert(demKyTuChung("aabcc", "adcaa"));
+
+</script>
+</body>
+</html>

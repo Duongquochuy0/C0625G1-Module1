@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<input type="number" id="height" placeholder="Nhập chiều cao của tam giác">
+<button onclick="veTamGiac()">Tạo tam giác vuông rỗng</button>
+<pre id="result"></pre>
+
+<script>
+    function veTamGiac() {
+        let h = parseInt(document.getElementById("height").value);
+        let output = "";
+
+        for (let i = 1; i <= h; i++) {
+            let line = "";
+            for (let j = 1; j <= i; j++) {
+                if (j === 1 || j === i || i === h) {
+                    line += "* ";
+                } else {
+                    line += "  ";
+                }
+            }
+            output += line + "\n";
+        }
+
+        document.getElementById("result").innerText = output;
+    }
+</script>
+</body>
+</html>

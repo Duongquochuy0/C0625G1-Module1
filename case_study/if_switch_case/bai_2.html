@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 2 - Nguyên âm hay phụ âm</title>
+</head>
+<body>
+<h3>Nhập một ký tự:</h3>
+<input type="text" id="kt" placeholder="Nhập 1 ký tự">
+<button onclick="kiemTra()">Kiểm tra</button>
+<p id="result"></p>
+
+<script>
+  function kiemTra() {
+    let nguyenAm = document.getElementById("kt").value;
+    let result = document.getElementById("result");
+    switch (nguyenAm) {
+      case 'a':
+      case 'e':
+      case 'i':
+      case 'o':
+      case 'u':
+      case 'A':
+      case 'E':
+      case 'I':
+      case 'O':
+      case 'U':
+        result.innerText = `"${nguyenAm}" là một nguyên âm.`;
+        break;
+      default:
+        result.innerText = `"${nguyenAm}" là một phụ âm.`;
+    }
+  }
+</script>
+</body>
+</html>

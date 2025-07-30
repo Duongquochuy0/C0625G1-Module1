@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<input type="text" id="inputArray" placeholder="Nhập mảng số nguyên">
+<button onclick="tinhPrefixSums()">Tính Prefix Sums</button>
+<p id="result"></p>
+
+<script>
+    function prefixSums(a) {
+        let b = [];
+        let sum = 0;
+        for (let i = 0; i < a.length; i++) {
+            sum += a[i];
+            b.push(sum);
+        }
+        return b;
+    }
+    function tinhPrefixSums() {
+        let input = document.getElementById("inputArray").value;
+        let a = input.split(",").map(Number);
+        let b = prefixSums(a);
+        document.getElementById("result").innerText = "Kết quả: [" + b.join(", ") + "]";
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<input type="text" id="inputArrA" placeholder="Nhập mảng số nguyên a">
+<input type="text" id="inputArrB" placeholder="Nhập mảng số nguyên c">
+<button onclick="check()">Kiểm tra mảng</button>
+<p id="result"></p>
+<script>
+    function kiemTraMangC(a,b){
+        let arrC= [];
+        for (let i = 0; i < b.length ; i++) {
+            if(!a.includes(b[i])){
+                arrC.push(b[i]);
+            }
+        }
+        return arrC
+    }
+    function check(){
+        let inputA=document.getElementById("inputArrA").value;
+        let arrA = inputA.split(",").map(Number);
+        let inputB = document.getElementById("inputArrB").value;
+        let arrB= inputB.split(",").map(Number);
+        let arrC=kiemTraMangC(arrA,arrB);
+        document.getElementById("result").innerText="Mảng C (phần tử trong B không thuộc A): [" + arrC.join(", ") + "]";
+    }
+</script>
+</body>
+</html>

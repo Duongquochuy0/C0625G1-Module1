@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2 </title>
+</head>
+<body>
+<h3>Nhập chiều cao tam giác:</h3>
+<input type="number" id="height" placeholder="Nhập h">
+<button onclick="veTamGiacCan()">Vẽ tam giác</button>
+<pre id="result"></pre>
+
+<script>
+    function veTamGiacCan() {
+        let h = parseInt(document.getElementById("height").value);
+        let output = "";
+
+        for (let i = 1; i <= h; i++) {
+            let line = "";
+            for (let j = 1; j <= h - i; j++) {
+                line += " ";
+            }
+            for (let k = 1; k <= i; k++) {
+                line += "*";
+                if (k !== i) {
+                    line += " ";
+                }
+            }
+
+            output += line + "\n";
+        }
+
+        document.getElementById("result").innerText = output;
+    }
+</script>
+</body>
+</html>

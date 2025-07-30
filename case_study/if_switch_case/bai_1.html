@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 1</title>
+</head>
+<body>
+<input type="text" id="luong" placeholder="Nhập lương của nhân viên">
+<button onclick="check()">Tính thuế thu nhập cá nhân</button>
+<p id="result"></p>
+<script>
+  function check(){
+    let luong = parseFloat(document.getElementById("luong").value);
+    let thue;
+    if (luong>=1500000){
+      thue = luong*(20/100);
+    }else if(luong>=7000000){
+      thue = luong*(10/100);
+    } else{
+      thue=luong*(5/100);
+    }
+    document.getElementById("result").innerText=(`${luong} thì thuế thu nhập cá nhân là ${thue} vnđ`)
+  }
+</script>
+</body>
+</html>

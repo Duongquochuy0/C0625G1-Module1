@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<script>
+    function str(s) {
+        let arr = [];
+
+        for (let char of s) {
+            if (arr.includes(char)) {
+                arr.push(char);
+            }
+        }
+
+        return arr.length;
+    }
+    alert(str("cabca"));
+
+</script>
+</body>
+</html>

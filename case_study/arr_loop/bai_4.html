@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4 - Gọi thức uống</title>
+</head>
+<body>
+<script>
+    let thucUong = [
+        "Cafe",
+        "Cam vắt",
+        "Nước ép cà rốt",
+        "Nước ép cà chua",
+        "Nước lọc",
+        "Nước dừa"
+    ];
+
+    let giaTien = [
+        20000,
+        25000,
+        30000,
+        30000,
+        10000,
+        25000
+    ];
+
+    let total = 0;
+    let orderDetails = "";
+
+    let option;
+    do {
+        let menuText = "MENU THỨC UỐNG\n";
+        for (let i = 0; i < thucUong.length; i++) {
+            menuText += `${i + 1}. ${thucUong[i]} - ${giaTien[i]} VND\n`;
+        }
+        menuText += "7. Thoát gọi món\n";
+
+        option = Number(prompt(menuText + "\nNhập lựa chọn 1-7:"));
+
+        if (option >= 1 && option <= 6) {
+            let index = option - 1;
+            let quantity = Number(prompt(`Bạn chọn ${thucUong[index]}. Nhập số lượng:`));
+
+            if (!isNaN(quantity) && quantity > 0) {
+                let itemTotal = giaTien[index] * quantity;
+                total += itemTotal;
+                orderDetails += `${thucUong[index]} x ${quantity} = ${itemTotal} VND\n`;
+                alert("Đã thêm món!\n" + orderDetails + `Tạm tính: ${total} VND`);
+            } else {
+                alert(" Số lượng không hợp lệ!");
+            }
+        } else if (option !== 7) {
+            alert(" Vui lòng chọn từ 1 đến 7!");
+        }
+
+    } while (option !== 7);
+
+    alert("HÓA ĐƠN CUỐI:\n" + orderDetails + `TỔNG TIỀN: ${total} VND`);
+</script>
+</body>
+</html>
