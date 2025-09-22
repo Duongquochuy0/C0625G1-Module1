@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #f7f7f7;
+    color: #333;
+}
+
+/* Ảnh banner đầu trang */
+header {
+    text-align: center;
+    background: #fff;
+    padding-bottom: 10px;
+}
+.banner {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+}
+header h1 {
+    margin: 10px 0;
+    font-size: 32px;
+    color: #444;
+}
+
+/* Mục lục */
+.toc {
+    background: #e0f0ff;
+    padding: 20px;
+}
+.toc h3 {
+    margin-top: 0;
+    text-align: center;
+}
+.toc ul {
+    list-style: none;
+    padding: 0;
+}
+.toc li {
+    margin: 8px 0;
+}
+.toc h5 {
+    margin: 0;
+    font-size: 18px;
+}
+.toc a {
+    text-decoration: none;
+    color: #0066cc;
+}
+.toc a:hover {
+    text-decoration: underline;
+}
+
+/* Nội dung truyện */
+main {
+    padding: 20px;
+    background: #fff;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+main h2 {
+    color: #444;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 4px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #e0e0e0;
+    font-size: 14px;
+}
